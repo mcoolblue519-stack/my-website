@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Vault Partners | Fractionalized Alternative Assets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 5% 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background: #ffffff;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+            font-weight: 300;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 4rem 5%;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 5rem 5%;
+        }
+
+        .testimonial-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .testimonial-title {
+            font-size: 0.9rem;
+            color: #5a6c7d;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MERIDIAN VAULT</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>MERIDIAN VAULT PARTNERS</h1>
+        <p>Unlocking Liquidity in Cultural Capital Through Proprietary Fractionalization Technology</p>
+        <a href="#products" class="cta-button">Explore Investment Opportunities</a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>$847M</h3>
+                <p>Assets Under Management</p>
+            </div>
+            <div class="stat-item">
+                <h3>23.4%</h3>
+                <p>Average Annual Returns</p>
+            </div>
+            <div class="stat-item">
+                <h3>14,000+</h3>
+                <p>Verified Investors</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.7%</h3>
+                <p>Client Satisfaction Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Meridian Vault?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>ChainCustody™ Security</h3>
+                <p>Our patent-pending authentication framework combines AI-driven provenance analysis with multi-signature cold storage protocols, ensuring unparalleled asset security and verification.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Institutional-Grade Analytics</h3>
+                <p>Access real-time portfolio performance metrics, predictive modeling, and comprehensive risk assessment tools powered by our proprietary quantum-resistant algorithms.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Global Liquidity Network</h3>
+                <p>Trade fractionalized assets 24/7 on our exclusive secondary marketplace, backed by deep liquidity pools and strategic partnerships with premier auction houses worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Curated Investment Products</h2>
+        
+        <div class="product-card">
+            <span class="product-tag">FLAGSHIP OFFERING</span>
+            <h3>Renaissance Protocol</h3>
+            <p>Gain fractional ownership in museum-quality Old Master paintings through blockchain-verified tokenization. Our inaugural collection features works authenticated by leading international conservators, including pieces attributed to Vermeer, Caravaggio, and Rembrandt. Minimum investment: $50,000. Expected annual appreciation: 12-18%.</p>
+            <p style="margin-top: 1rem; color: #5a6c7d;"><strong>Current Holdings:</strong> "Girl with a Wine Glass" (Vermeer School, 1659), "The Denial of Saint Peter" (Caravaggio Attribution, 1610), "Portrait of a Merchant" (Rembrandt Studio, 1642)</p>
+        </div>
+
+        <div class="product-card">
+            <span class="product-tag">PREMIUM ACCESS</span>
+            <h3>CineCollect™ Assets</h3>
+            <p>Democratizing access to iconic film memorabilia through fractionalized ownership structures. Each asset undergoes rigorous authentication and is held in climate-controlled storage facilities with insurance coverage exceeding $100M. Portfolio includes props from Academy Award-winning productions spanning six decades.</p>
+            <p style="margin-top: 1rem; color: #5a6c7d;"><strong>Featured Assets:</strong> Original lightsaber prop (Star Wars: A New Hope, 1977), Ruby slippers reproduction (The Wizard of Oz archive, 1939), DeLorean time circuit display (Back to the Future, 1985)</p>
+        </div>
+
+        <div class="product-card">
+            <span class="product-tag">EMERGING MARKET</span>
+            <h3>Vintage Digital Reserve</h3>
+            <p>Capture value in the foundational artifacts of internet history. Our Digital Archaeology Division has secured exclusive tokenization rights to seminal web properties, first-generation social media content, and pre-NFT digital collectibles. This asset class offers exposure to the rapidly appreciating digital heritage market.</p>
+            <p style="margin-top: 1rem; color: #5a6c7d;"><strong>Portfolio Highlights:</strong> Premium .com domain portfolio (acquired 1994-1998), Verified first-1000 YouTube upload archives, Original GeoCities template collection (authenticated 1996)</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Meridian Vault has completely transformed my approach to alternative assets. The Renaissance Protocol alone has outperformed my traditional equity portfolio by 8% annually. The level of transparency and security is unmatched."</p>
+                <p class="testimonial-author">Kay Banks</p>
+                <p class="testimonial-title">Senior Portfolio Manager, Elias-Clarke Capital</p>
+            </div>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"As someone who's been in wealth management for 30 years, I was skeptical of fractionalized cultural assets. But the due diligence process at Meridian Vault is more rigorous than any institutional framework I've encountered. Their ChainCustody technology is truly revolutionary."</p>
+                <p class="testimonial-author">Robert Langdon</p>
+                <p class="testimonial-title">Chief Investment Officer, Symbology Asset Management</p>
+            </div>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"The CineCollect platform gave me access to investment opportunities I never thought possible. Within 18 months, my fractional holdings have appreciated 34%. The quarterly valuation reports are incredibly detailed and professionally executed."</p>
+                <p class="testimonial-author">Jordan Belfort</p>
+                <p class="testimonial-title">Independent Investor & Financial Consultant</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title">Leadership Team</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: #5a6c7d; font-size: 1.1rem;">
+                Our executive team brings together decades of experience in traditional finance, blockchain technology, and cultural asset management. We are united by a singular vision: to democratize access to the world's most exclusive alternative investments.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">DR</div>
+                    <h3>Dr. Diana Rothschild</h3>
+                    <p class="member-title">Founder & Chief Executive Officer</p>
+                    <p class="member-bio">Dr. Rothschild founded Meridian Vault in 2019 after a distinguished 15-year career in institutional asset management. She holds a PhD in Quantitative Finance from the Stanford School of Advanced Finance and an MBA from Wharton. Prior to Meridian Vault, Diana served as Managing Director at Goldman Sachs' Alternative Investments division and pioneered the first blockchain-backed art fund at Sotheby's Financial Services. She has been featured in Forbes' "30 Under 40" and the Financial Times' "Top 100 Women in Finance."</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">MC</div>
+                    <h3>Marcus Chen, CFA</h3>
+                    <p class="member-title">Chief Investment Officer</p>
+                    <p class="member-bio">Marcus brings 18 years of experience in alternative asset valuation and portfolio construction. He earned his Master's in Financial Engineering from the Columbia Institute of Blockchain Economics and holds the CFA charter. Before joining Meridian Vault, Marcus led the digital assets division at BlackRock and served as a senior quantitative analyst at Renaissance Technologies. His proprietary valuation models have been cited in over 40 academic publications, and he regularly lectures at the MIT Center for Cryptoeconomics.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">SE</div>
+                    <h3>Dr. Sarah Eriksson</h3>
+                    <p class="member-title">Chief Technology Officer</p>
+                    <p class="member-bio">Dr. Eriksson is a leading authority on blockchain security architecture and smart contract optimization. She completed her doctorate in Distributed Systems at the Cambridge Institute of Advanced Computing and previously served as Principal Engineer at Coinbase and Lead Blockchain Architect at JP Morgan's Onyx division. Sarah holds 12 patents in cryptographic authentication protocols and was named one of Fortune's "40 Under 40 Tech Innovators." She is also an adjunct professor at the Berkeley Haas Blockchain Institute.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">JW</div>
+                    <h3>James Wellington III</h3>
+                    <p class="member-title">Chief Compliance Officer & General Counsel</p>
+                    <p class="member-bio">James oversees all regulatory compliance, legal strategy, and fiduciary responsibilities at Meridian Vault. He earned his JD from Yale Law School and an LLM in Securities Regulation from the Georgetown Institute of Financial Law. With 20 years of experience in securities law, James previously served as Deputy General Counsel at the SEC's Division of Trading and Markets and as a partner at Sullivan & Cromwell. He has testified before Congress on digital asset regulation and serves on the board of the Alternative Investment Management Association.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">AL</div>
+                    <h3>Dr. Amara Laurent</h3>
+                    <p class="member-title">Head of Provenance & Authentication</p>
+                    <p class="member-bio">Dr. Laurent joined Meridian Vault from Christie's, where she directed the Authenticity Research Department for 11 years. She holds a PhD in Art History from the Sorbonne Institute of Cultural Studies and completed her postdoctoral research at the Oxford Centre for Conservation Science. Amara has authenticated over 3,000 works of art and has served as an expert witness in 47 high-profile art fraud cases. Her groundbreaking work combining AI analysis with traditional connoisseurship has been published in Nature and the Journal of Cultural Analytics.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">TP</div>
+                    <h3>Trevor Pembroke</h3>
+                    <p class="member-title">Head of Client Relations</p>
+                    <p class="member-bio">Trevor leads all client-facing operations and institutional partnerships at Meridian Vault. He graduated summa cum laude from Princeton with a degree in Economics and began his career at Morgan Stanley's Private Wealth Management division. Trevor subsequently served as a Managing Director at UBS's Ultra High Net Worth group and built the family office practice at Bridgewater Associates. He is a Certified Private Wealth Advisor (CPWA) and maintains Series 7, 63, and 65 licenses. Trevor sits on the advisory boards of three prominent family office networks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Philosophy Section -->
+    <section class="philosophy" id="technology">
+        <div class="philosophy-container">
+            <h2 class="section-title">Investment Philosophy</h2>
+            
+            <div class="philosophy-intro">
+                <p>At Meridian Vault Partners, we operate at the intersection of cultural permanence and technological innovation. Our investment thesis is built on a fundamental premise: the world's most valuable assets are increasingly disconnected from the capital markets that could optimize their value. Through proprietary fractionalization protocols, we are eliminating the liquidity constraints that have historically restricted access to museum-quality art, iconic collectibles, and foundational digital artifacts.</p>
+            </div>
+
+            <div class="philosophy-section">
+                <h3>Core Principles</h3>
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h4>1. Rigorous Due Diligence</h4>
+                        <p>Every asset undergoes a minimum 90-day evaluation process incorporating forensic authentication, provenance verification, condition assessment, and market comparables analysis. Our acceptance rate is below 2.3%, ensuring only institutional-grade assets enter our portfolios. We employ a proprietary 47-point scoring matrix that synthesizes qualitative expert judgment with quantitative predictive modeling.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>2. Technology-First Infrastructure</h4>
+                        <p>Our ChainCustody™ framework leverages immutable distributed ledger technology to create transparent, auditable ownership records. Each fractional token is cryptographically secured using AES-256 encryption and stored across geographically distributed cold storage nodes. Our smart contracts have undergone penetration testing by three independent cybersecurity firms and carry $50M in error and omission insurance.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>3. Uncorrelated Returns</h4>
+                        <p>Cultural assets demonstrate statistically significant negative correlation with traditional equity indices (β = -0.12 vs S&P 500 over 20-year period). Our portfolios provide essential diversification benefits while maintaining target volatility below 15% annually. Backtested simulations indicate that a 15-20% allocation to fractionalized cultural assets improves Sharpe ratios by an average of 0.34 points.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>4. Active Portfolio Management</h4>
+                        <p>Unlike passive buy-and-hold strategies, we continuously optimize holdings through algorithmic rebalancing, tax-loss harvesting, and strategic exits. Our quantitative team monitors over 400 market signals daily, including auction results, institutional acquisition patterns, media sentiment analysis, and macroeconomic indicators. This active approach has generated an average of 340 basis points of alpha annually since inception.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="philosophy-section">
+                <h3>The Meridian Vault Advantage</h3>
+                <p class="advantage-text">Traditional alternative investment platforms require minimum commitments of $5-10M and multi-year lock-up periods. We have reimagined this model entirely. Through tokenization, investors gain fractional exposure starting at $50,000 with quarterly redemption windows. Our proprietary secondary marketplace provides liquidity comparable to publicly traded securities while maintaining the tax advantages and portfolio characteristics of private alternative investments.</p>
+                
+                <p class="advantage-text">Furthermore, our vertical integration strategy eliminates costly middlemen. By maintaining direct relationships with auction houses, private collectors, and authentication experts, we reduce acquisition costs by approximately 18% versus traditional art investment funds. These savings flow directly to our investors through enhanced net returns.</p>
+            </div>
+
+            <div class="philosophy-section">
+                <h3>Risk Management Framework</h3>
+                <p class="advantage-text">Cultural asset investment carries unique risks including authenticity concerns, physical damage, market illiquidity, and regulatory uncertainty. Our comprehensive risk mitigation strategy addresses each vector:</p>
+                
+                <ul class="risk-list">
+                    <li><strong>Authenticity Risk:</strong> Multi-layered authentication combining forensic science, AI-powered brushstroke analysis, and consensus opinions from minimum three recognized experts per asset</li>
+                    <li><strong>Physical Risk:</strong> All assets stored in Tier IV+ climate-controlled facilities with 24/7 monitoring, seismic protection, and insurance coverage at 125% of appraised value</li>
+                    <li><strong>Market Risk:</strong> Diversification across 40+ assets, multiple categories, time periods, and geographic origins; mandatory 3-year minimum holding periods for core positions</li>
+                    <li><strong>Regulatory Risk:</strong> Ongoing engagement with SEC, FINRA, and international regulatory bodies; full compliance with Howey Test requirements and securities registration protocols</li>
+                    <li><strong>Technology Risk:</strong> Redundant blockchain infrastructure, quarterly third-party security audits, bug bounty program, and comprehensive cybersecurity insurance</li>
+                </ul>
+            </div>
+
+            <div class="philosophy-cta">
+                <h3>Ready to Diversify Your Portfolio?</h3>
+                <p>Accredited investors can schedule a consultation with our investment team to discuss portfolio allocation strategies and current opportunities.</p>
+                <button class="cta-button" style="margin-top: 1.5rem;">Schedule Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#disclosures">Investment Disclosures</a>
+                <a href="#careers">Careers</a>
+                <a href="#press">Press Inquiries</a>
+            </div>
+            <p>Meridian Vault Partners LLC</p>
+            <p>432 Park Avenue South, 18th Floor, New York, NY 10016</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">SEC Registered Investment Advisor | FINRA Member | SIPC Protected</p>
+            <p class="copyright">© 2026 Meridian Vault Partners. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
